@@ -125,8 +125,8 @@ Profiling big data is among the most challenging endeavors a data scientist can 
 
 We processed many datasets for testing and optimization of our code, yet still run into memory issues or errors when we attempt to process all 1900 datasets in one pipeline. Therefore, we present the following quantitative results of a subset, 1159 datasets, with the disclaimer that the full collection consists of 1900 datasets and our results describe only this subset. However, the methods we defined are designed for big datasets and can be used for the entire 1900 dataset collection.
 
-The two-step process, generic profiling and semantic profiling, can be broken down into two tasks, Task 1 and Task 2, respectively. For Task 1, we sampled 150 of 1900 files. The average number of types for each dataset, across the 150 files is as follows: 10.0 integer types, 11.4 real (double) types, 1.1 data\_time types, and 4.7 text types. We found an average of 175460.3 empty values out of all values in the dataset which is approximately 22\%. For Task 2, we analyzed 260 columns and we were able to identify the semantic types for 210 columns with a precision of 72.40%. 
-
+The two-step process, generic profiling and semantic profiling, can be broken down into two tasks, Task 1 and Task 2, respectively. Of the 1159 files we profiled in Task 1, we found 11674 integer columns, 13646 text columns, 1137 date/time columns, and 4527 real number columns. For Task 2, we
+analyzed 260 columns and we were able to identify the semantic types for 210 columns with a precision of 72.40%.
 
 \end{abstract}
 
@@ -170,8 +170,7 @@ The two-step process, generic profiling and semantic profiling, can be broken do
 \begin{teaserfigure}
   \includegraphics[width=\textwidth]{dendrogram.png}
   \caption{260 Filenames Clustered Using Cosine Similarity}
- \Description{Enjoying the baseball game from the third-base
- seats. Ichiro Suzuki preparing to bat.}
+ \Description{260 Filenames Clustered using Cosine Simlilarity}
   \label{fig:teaser}
 \end{teaserfigure}
 
@@ -285,7 +284,7 @@ The following semantic data types were found using regex. We found this to be a 
     \item school level
 \end{itemize}
 
-This seemed like a viable approach for this set of categories. However, Street and Address were tricky in that these two types share many similar words such as Road, Street, St, Ave and so on. Therefore, during the execution, they were always labeled together. In observing the data, we noticed that address types usually are longer than street names in length. Therefore, to solve the problem of Street and Address being indistinguishable, we compute the average length for all the columns. We tested and found optimal thresholds: if the string is less than or equal to 15 characters, it's a street; otherwise, it is an address. In this way, we successfully distinguished these two types. 
+This seemed like a viable approach for this set of categories. However, Street and Address were tricky in that these two types share many similar words such as Road, Street, St, Ave and so on. Therefore, during the execution, they were always labeled together. In observing the data, we noticed that address types usually are longer than street names in length. Therefore, to solve the problem of Street and Address being indistinguishable, we compute the average length for all the columns. We tested and found optimal thresholds: if the string is less than or equal to 15 characters, it's a street; otherwise, it is an address. In this way, we successfully distinguished these two types. \newline 
 
 \subsubsection{Method 2:Named Entity Recognition (NER) and Soundex}
 The following semantic data types were found using NER and Soundex:
@@ -317,8 +316,14 @@ The pipeline for this method is as follows: First, we need to determine the cate
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{similarity.png}
-  \caption{Filename n x n Cosine Similarity Matrix}
-  \Description{Filename n x n Cosine Similarity Matrix}
+  \caption{Filename n x n Cosine Similarity Matrix. The presence of some bright (similar)
+dots in the similarity matrix motivated us
+to find out if files could be clustered by file
+name.}
+  \Description{Filename n x n Cosine Similarity Matrix. The presence of some bright (similar)
+dots in the similarity matrix motivated us
+to find out if files could be clustered by file
+name.}
 \end{figure}
 
 
@@ -327,9 +332,8 @@ We passed the similarity matrix into the scipy cluster hierchy linkage() functio
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{dendrogram.png}
-  \caption{Linkage Matrix Dendrogram}
-  \Description{Linkage Matrix Dendrogram
-}
+  \caption{Linkage Matrix. The vertical lines in this dendrogram represent filenames. Neighbored lines were mapped to same cluster.}
+  \Description{Linkage Matrix Dendrogram}
 \end{figure}
 
 In Figure 3, Vertical lines represent filenames. Neighbored lines (color-coded) were mapped to same cluster. The lower portions represent the resulting files which were mapped to the same clusters. As you can see (from their similar heights), many file names were correctly mapped to clusters containing files with similar file names. We wrote this final dictionary to a JSON file.
@@ -503,9 +507,12 @@ By smarter, we mean a smaller list which yields higher accuracy. We started obse
 \textbf{Ruinan Zhang:}
 \begin{itemize}
     \item String profiling
-    \item Date\_time prrofiling
-    \item RegEx-based filtering functions\newline
+    \item Date\_time profiling
+    \item RegEx-based filtering functions
 \end{itemize} 
+
+\vfill\null
+\columnbreak
 
 \subsection{Task 2: Semantic Profiling}
 \textbf{Ankush Jain}: 
