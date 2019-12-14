@@ -2,7 +2,7 @@
 
 ## Status: DRAFT
 
-### [View PDF of draft](https://github.com/theodorehadges/ACM_data_profiling_paper/blob/master/generic_and_semantic_profiling_of_big_datasets.pdf)
+### [View PDF of draft](https://github.com/theodorehadges/ACM_data_profiling_paper/blob/master/project_files/generic_and_semantic_profiling_of_big_datasets.pdf)
 
 ### [View source code](https://github.com/theodorehadges/big_data_course_project)
 
