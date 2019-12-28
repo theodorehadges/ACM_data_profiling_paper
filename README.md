@@ -1,4 +1,4 @@
-# ACM-style paper for profiling big datasets project
+# ACM-style paper for profiling big datasets course project 
 
 ## Status: DRAFT
 
@@ -7,7 +7,10 @@
 ### [View source code](https://github.com/theodorehadges/big_data_course_project)
 
 <hr>
-![Dendogram](https://github.com/theodorehadges/ACM_data_profiling_paper/img/dendogram.png)
+
+![Dendogram](https://github.com/theodorehadges/ACM_data_profiling_paper/blob/master/img/dendrogram.png)
+**Figure 1: 260 Filenames Clustered Using Cosine Similarity**
+
 <hr>
 
 
