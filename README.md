@@ -7,6 +7,9 @@
 ### [View source code](https://github.com/theodorehadges/big_data_course_project)
 
 <hr>
+![Dendogram](https://github.com/theodorehadges/ACM_data_profiling_paper/img/dendogram.png)
+<hr>
+
 
 We call ourselves **CreaTAK**  
 **T** is for [Theodore](https://github.com/theodorehadges)  
@@ -22,6 +25,6 @@ columns, 1137 date/time columns, and 4527 real number columns. For Task 2, we
 analyzed 260 columns and we were able to identify the semantic types for 210 columns
 with a precision of 72.40%.
 
-
+### [Click here](https://github.com/theodorehadges/ACM_data_profiling_paper/blob/master/project_files/generic_and_semantic_profiling_of_big_datasets.pdf) to view the full report (draft).
 
 
