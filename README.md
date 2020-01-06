@@ -1,10 +1,10 @@
-# ACM-style paper for profiling big datasets course project 
+# ACM-style paper for NYC Open Data profiling project 
 
 ## Status: DRAFT
 
 ### [View PDF of draft](https://github.com/theodorehadges/ACM_data_profiling_paper/blob/master/project_files/generic_and_semantic_profiling_of_big_datasets.pdf)
 
-### [View source code](https://github.com/theodorehadges/big_data_course_project)
+### [View source code](https://github.com/theodorehadges/nyc-open-data-profiling)
 
 <hr>
 
